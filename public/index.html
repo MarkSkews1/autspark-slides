@@ -7,13 +7,146 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    .reveal h1 { font-size: 2.5em; color: #2c3e50; }
-    .reveal h2 { color: #3498db; }
-    .reveal strong { color: #e74c3c; }
-    .reveal table { font-size: 0.8em; }
-    .reveal li { margin: 10px 0; }
-    .golden-rules { background: #fff3cd; padding: 20px; border-left: 5px solid #ffc107; }
+    :root {
+      --primary-blue: #0066cc;
+      --accent-orange: #ff6b35;
+      --dark-text: #1a1a1a;
+      --light-text: #4a5568;
+      --success-green: #10b981;
+      --background-light: #f8fafc;
+    }
+
+    .reveal {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    .reveal h1 {
+      font-size: 2.8em;
+      color: var(--dark-text);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.5em;
+      letter-spacing: -0.02em;
+    }
+
+    .reveal h2 {
+      color: var(--primary-blue);
+      font-weight: 700;
+      font-size: 1.8em;
+    }
+
+    .reveal p {
+      color: var(--light-text);
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    .reveal strong {
+      color: var(--primary-blue);
+      font-weight: 700;
+    }
+
+    .reveal li {
+      margin: 15px 0;
+      line-height: 1.6;
+      color: var(--light-text);
+    }
+
+    .reveal ul {
+      list-style: none;
+    }
+
+    .reveal ul li::before {
+      content: "✓";
+      color: var(--success-green);
+      font-weight: bold;
+      display: inline-block;
+      width: 1.5em;
+      margin-left: -1.5em;
+      font-size: 1.2em;
+    }
+
+    /* Table Styling */
+    .reveal table {
+      font-size: 0.9em;
+      border-collapse: separate;
+      border-spacing: 0;
+      width: 100%;
+      margin: 30px auto;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .reveal table th {
+      background: linear-gradient(135deg, var(--primary-blue), #0052a3);
+      color: white;
+      padding: 18px;
+      font-weight: 700;
+      text-align: left;
+      font-size: 1.1em;
+    }
+
+    .reveal table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid #e2e8f0;
+      background: white;
+    }
+
+    .reveal table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .reveal table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    /* Card Styling */
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-left: 4px solid var(--primary-blue);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    /* Highlight Box */
+    .highlight-box {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      padding: 25px 30px;
+      border-radius: 12px;
+      border-left: 5px solid var(--primary-blue);
+      margin: 25px 0;
+      box-shadow: 0 2px 8px rgba(0,102,204,0.1);
+    }
+
+    /* Accent Text */
+    .accent {
+      color: var(--accent-orange);
+      font-weight: 700;
+    }
+
+    /* Number Badges */
+    .number-badge {
+      display: inline-block;
+      background: var(--primary-blue);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      font-weight: bold;
+      margin-right: 10px;
+    }
   </style>
 </head>
 <body>
@@ -21,11 +154,13 @@
     <div class="slides">
 
       <!-- SLIDE 1: Opening -->
-      <section>
-        <h1>Smarter Laundry Operations.<br>Less Waste. Happier Teams.</h1>
-        <p><strong>See what's really happening on your floor — and fix it.</strong></p>
-        <p>AutSpark + LinTech Suite</p>
-        <p style="font-style: italic;">Building the future of Nordic laundry operations</p>
+      <section data-background-gradient="linear-gradient(135deg, #0066cc 0%, #0052a3 100%)">
+        <h1 style="color: white; font-size: 3em;">Smarter Laundry Operations.<br>Less Waste. Happier Teams.</h1>
+        <div class="highlight-box" style="background: rgba(255,255,255,0.95); margin-top: 40px;">
+          <p style="font-size: 1.4em; color: var(--dark-text);"><strong style="color: var(--accent-orange);">See what's really happening on your floor — and fix it.</strong></p>
+        </div>
+        <p style="color: white; font-size: 1.3em; margin-top: 50px; font-weight: 600;">AutSpark + LinTech Suite</p>
+        <p style="color: rgba(255,255,255,0.9); font-style: italic; font-size: 1.1em;">Building the future of Nordic laundry operations</p>
         <aside class="notes">
           Opening analogy: "Running a modern laundry today is a bit like driving at night with no dashboard — you're moving, but you can't see your speed, your fuel, or the warning lights. We turn the dashboard on."
         </aside>
@@ -34,34 +169,46 @@
       <!-- SLIDE 2: Your Current Challenge -->
       <section>
         <h1>The Problem</h1>
-        <p>Operational data trapped in:</p>
-        <ul>
-          <li>Spreadsheets</li>
-          <li>Manual logs</li>
-          <li>Tribal knowledge</li>
-        </ul>
-        <p><strong>What you're managing:</strong></p>
-        <ul>
-          <li>High labor costs</li>
-          <li>Energy regulations</li>
-          <li>Sustainability requirements</li>
-          <li>Quality expectations</li>
-          <li>Staff retention</li>
-        </ul>
-        <p><strong>Result:</strong> No visibility into costs or efficiency</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px;">
+          <div class="card">
+            <p><strong style="font-size: 1.2em; color: var(--accent-orange);">📊 Operational data trapped in:</strong></p>
+            <ul style="margin-top: 20px;">
+              <li>Spreadsheets</li>
+              <li>Manual logs</li>
+              <li>Tribal knowledge</li>
+            </ul>
+          </div>
+          <div class="card">
+            <p><strong style="font-size: 1.2em; color: var(--accent-orange);">⚠️ What you're managing:</strong></p>
+            <ul style="margin-top: 20px;">
+              <li>High labor costs</li>
+              <li>Energy regulations</li>
+              <li>Sustainability requirements</li>
+              <li>Quality expectations</li>
+              <li>Staff retention</li>
+            </ul>
+          </div>
+        </div>
+        <div class="highlight-box" style="margin-top: 30px;">
+          <p style="font-size: 1.3em; margin: 0;"><strong style="color: var(--accent-orange);">Result:</strong> No visibility into costs or efficiency</p>
+        </div>
       </section>
 
       <!-- SLIDE 3: Hidden Costs -->
       <section>
         <h1>Where Efficiency Is Lost</h1>
-        <ul>
-          <li>Managers firefighting instead of optimizing</li>
-          <li>Machines running inefficiently</li>
-          <li>Energy waste from poor scheduling</li>
-          <li>Quality issues requiring rework</li>
-          <li>Unnecessary overtime</li>
-        </ul>
-        <p><strong>Most of this is preventable with visibility.</strong></p>
+        <div style="max-width: 900px; margin: 0 auto;">
+          <ul style="font-size: 1.1em; text-align: left;">
+            <li>🔥 Managers firefighting instead of optimizing</li>
+            <li>⚙️ Machines running inefficiently</li>
+            <li>⚡ Energy waste from poor scheduling</li>
+            <li>🔄 Quality issues requiring rework</li>
+            <li>⏰ Unnecessary overtime</li>
+          </ul>
+        </div>
+        <div class="highlight-box" style="margin-top: 50px; font-size: 1.3em;">
+          <p style="margin: 0;"><strong style="color: var(--success-green);">✓ Most of this is preventable with visibility.</strong></p>
+        </div>
       </section>
 
       <!-- SLIDE 4: The Market Shift -->
@@ -89,17 +236,19 @@
             <td>Transparent</td>
           </tr>
         </table>
-        <p><strong>Early adopters in Nordic region will own competitive advantage.</strong></p>
-        <p>Potential improvements: 12-20% productivity, 15-25% energy savings, 30% fewer quality issues</p>
+        <div class="highlight-box">
+          <p style="margin-bottom: 15px;"><strong style="color: var(--primary-blue);">Early adopters in Nordic region will own competitive advantage.</strong></p>
+          <p style="margin: 0;">Potential improvements: <span class="accent">12-20% productivity</span>, <span class="accent">15-25% energy savings</span>, <span class="accent">30% fewer quality issues</span></p>
+        </div>
       </section>
 
       <!-- SLIDE 5: Introducing AutSpark -->
       <section>
         <h1>Operational Intelligence Built for Laundry</h1>
-        <div style="display: flex; gap: 40px;">
-          <div style="flex: 1;">
-            <p><strong>What We Provide:</strong></p>
-            <ul>
+        <div style="display: flex; gap: 30px; margin-top: 40px;">
+          <div class="card" style="flex: 1;">
+            <p><strong style="font-size: 1.3em; color: var(--success-green);">✓ What We Provide:</strong></p>
+            <ul style="margin-top: 20px;">
               <li>Real-time energy & labor monitoring</li>
               <li>Sustainability compliance support</li>
               <li>Quality consistency management</li>
@@ -107,9 +256,9 @@
               <li>GDPR-compliant operations</li>
             </ul>
           </div>
-          <div style="flex: 1;">
-            <p><strong>What We Don't:</strong></p>
-            <ul>
+          <div class="card" style="flex: 1; border-left-color: var(--accent-orange);">
+            <p><strong style="font-size: 1.3em; color: var(--accent-orange);">✗ What We Don't:</strong></p>
+            <ul style="margin-top: 20px;">
               <li>Require long-term contracts</li>
               <li>Replace your expertise</li>
               <li>Add unnecessary complexity</li>
@@ -154,31 +303,35 @@
       <!-- SLIDE 7: The Four Key Benefits -->
       <section>
         <h1>What You'll Actually See</h1>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.85em;">
-          <div>
-            <p><strong>Energy Efficiency</strong></p>
-            <ul>
-              <li>15-25% energy cost reduction</li>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 40px;">
+          <div class="card">
+            <p style="font-size: 2.5em; margin: 0;">⚡</p>
+            <p><strong style="font-size: 1.3em; color: var(--primary-blue);">Energy Efficiency</strong></p>
+            <ul style="margin-top: 15px; font-size: 0.95em;">
+              <li><span class="accent">15-25%</span> energy cost reduction</li>
               <li>Compliance documentation</li>
             </ul>
           </div>
-          <div>
-            <p><strong>Productivity</strong></p>
-            <ul>
-              <li>12-20% output improvement</li>
+          <div class="card">
+            <p style="font-size: 2.5em; margin: 0;">📈</p>
+            <p><strong style="font-size: 1.3em; color: var(--primary-blue);">Productivity</strong></p>
+            <ul style="margin-top: 15px; font-size: 0.95em;">
+              <li><span class="accent">12-20%</span> output improvement</li>
               <li>Same headcount</li>
             </ul>
           </div>
-          <div>
-            <p><strong>Quality</strong></p>
-            <ul>
-              <li>30% fewer quality issues</li>
+          <div class="card">
+            <p style="font-size: 2.5em; margin: 0;">✨</p>
+            <p><strong style="font-size: 1.3em; color: var(--primary-blue);">Quality</strong></p>
+            <ul style="margin-top: 15px; font-size: 0.95em;">
+              <li><span class="accent">30%</span> fewer quality issues</li>
               <li>Consistent delivery</li>
             </ul>
           </div>
-          <div>
-            <p><strong>Clarity</strong></p>
-            <ul>
+          <div class="card">
+            <p style="font-size: 2.5em; margin: 0;">👁️</p>
+            <p><strong style="font-size: 1.3em; color: var(--primary-blue);">Clarity</strong></p>
+            <ul style="margin-top: 15px; font-size: 0.95em;">
               <li>Full cost visibility</li>
               <li>Better decisions</li>
             </ul>
@@ -240,11 +393,23 @@
       <!-- SLIDE 10: Getting Started -->
       <section>
         <h1>Timeline</h1>
-        <div style="font-size: 1.2em;">
-          <p><strong>Week 1:</strong> Discovery workshop</p>
-          <p><strong>Week 2:</strong> Assessment completed</p>
-          <p><strong>Week 3:</strong> Pilot agreement finalized</p>
-          <p><strong>Week 4:</strong> Pilot begins</p>
+        <div style="max-width: 700px; margin: 50px auto; text-align: left;">
+          <div style="margin: 30px 0; display: flex; align-items: center;">
+            <span class="number-badge">1</span>
+            <p style="margin: 0; font-size: 1.3em;"><strong>Week 1:</strong> Discovery workshop</p>
+          </div>
+          <div style="margin: 30px 0; display: flex; align-items: center;">
+            <span class="number-badge">2</span>
+            <p style="margin: 0; font-size: 1.3em;"><strong>Week 2:</strong> Assessment completed</p>
+          </div>
+          <div style="margin: 30px 0; display: flex; align-items: center;">
+            <span class="number-badge">3</span>
+            <p style="margin: 0; font-size: 1.3em;"><strong>Week 3:</strong> Pilot agreement finalized</p>
+          </div>
+          <div style="margin: 30px 0; display: flex; align-items: center;">
+            <span class="number-badge">4</span>
+            <p style="margin: 0; font-size: 1.3em;"><strong>Week 4:</strong> Pilot begins</p>
+          </div>
         </div>
       </section>
 
@@ -263,13 +428,17 @@
       </section>
 
       <!-- SLIDE 12: Let's Build This Together -->
-      <section>
-        <h1>Let's Build This Together</h1>
-        <p style="font-size: 1.3em; margin: 40px 0;"><strong>What if your operation had complete visibility?</strong></p>
-        <p style="font-size: 1.3em; margin: 40px 0;"><strong>What if you were the first in your market with this advantage?</strong></p>
-        <p style="margin: 40px 0;">Ready to explore?</p>
-        <p style="font-size: 1.5em;"><strong>Schedule your discovery workshop today.</strong></p>
-        <p style="margin-top: 40px;"><a href="https://autspark-website-production.up.railway.app/">https://autspark-website-production.up.railway.app/</a></p>
+      <section data-background-gradient="linear-gradient(135deg, #0066cc 0%, #0052a3 100%)">
+        <h1 style="color: white;">Let's Build This Together</h1>
+        <div style="margin: 60px 0;">
+          <p style="font-size: 1.4em; margin: 30px 0; color: white; font-weight: 600;">What if your operation had complete visibility?</p>
+          <p style="font-size: 1.4em; margin: 30px 0; color: white; font-weight: 600;">What if you were the first in your market with this advantage?</p>
+        </div>
+        <div class="highlight-box" style="background: rgba(255,255,255,0.95); margin: 50px auto; max-width: 800px;">
+          <p style="margin: 0; color: var(--dark-text); font-size: 1.2em;">Ready to explore?</p>
+          <p style="font-size: 1.8em; margin: 20px 0 0 0;"><strong style="color: var(--accent-orange);">Schedule your discovery workshop today.</strong></p>
+        </div>
+        <p style="margin-top: 40px;"><a href="https://autspark-website-production.up.railway.app/" style="color: white; font-size: 1.2em; text-decoration: underline;">https://autspark-website-production.up.railway.app/</a></p>
       </section>
 
     </div>
