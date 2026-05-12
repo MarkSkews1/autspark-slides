@@ -147,6 +147,31 @@
       font-weight: bold;
       margin-right: 10px;
     }
+
+    /* Responsive adjustments */
+    @media screen and (max-width: 768px) {
+      .reveal h1 {
+        font-size: 2em;
+      }
+      .reveal p {
+        font-size: 0.9em;
+      }
+      .card {
+        padding: 15px;
+      }
+    }
+
+    /* Ensure content doesn't overflow */
+    .reveal section {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .reveal .slides {
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -155,12 +180,12 @@
 
       <!-- SLIDE 1: Opening -->
       <section data-background-gradient="linear-gradient(135deg, #0066cc 0%, #0052a3 100%)">
-        <h1 style="color: white; font-size: 3em;">Smarter Laundry Operations.<br>Less Waste. Happier Teams.</h1>
-        <div class="highlight-box" style="background: rgba(255,255,255,0.95); margin-top: 40px;">
-          <p style="font-size: 1.4em; color: var(--dark-text);"><strong style="color: var(--accent-orange);">See what's really happening on your floor — and fix it.</strong></p>
+        <h1 style="color: white; font-size: 2.5em; margin-bottom: 30px;">Smarter Laundry Operations.<br>Less Waste. Happier Teams.</h1>
+        <div class="highlight-box" style="background: rgba(255,255,255,0.95); margin: 30px auto; max-width: 800px;">
+          <p style="font-size: 1.2em; color: var(--dark-text); margin: 0;"><strong style="color: var(--accent-orange);">See what's really happening on your floor — and fix it.</strong></p>
         </div>
-        <p style="color: white; font-size: 1.3em; margin-top: 50px; font-weight: 600;">AutSpark + LinTech Suite</p>
-        <p style="color: rgba(255,255,255,0.9); font-style: italic; font-size: 1.1em;">Building the future of Nordic laundry operations</p>
+        <p style="color: white; font-size: 1.2em; margin-top: 40px; font-weight: 600;">AutSpark + LinTech Suite</p>
+        <p style="color: rgba(255,255,255,0.9); font-style: italic; font-size: 1em;">Building the future of Nordic laundry operations</p>
         <aside class="notes">
           Opening analogy: "Running a modern laundry today is a bit like driving at night with no dashboard — you're moving, but you can't see your speed, your fuel, or the warning lights. We turn the dashboard on."
         </aside>
@@ -429,16 +454,16 @@
 
       <!-- SLIDE 12: Let's Build This Together -->
       <section data-background-gradient="linear-gradient(135deg, #0066cc 0%, #0052a3 100%)">
-        <h1 style="color: white;">Let's Build This Together</h1>
-        <div style="margin: 60px 0;">
-          <p style="font-size: 1.4em; margin: 30px 0; color: white; font-weight: 600;">What if your operation had complete visibility?</p>
-          <p style="font-size: 1.4em; margin: 30px 0; color: white; font-weight: 600;">What if you were the first in your market with this advantage?</p>
+        <h1 style="color: white; font-size: 2.5em;">Let's Build This Together</h1>
+        <div style="margin: 40px 0;">
+          <p style="font-size: 1.2em; margin: 20px 0; color: white; font-weight: 600;">What if your operation had complete visibility?</p>
+          <p style="font-size: 1.2em; margin: 20px 0; color: white; font-weight: 600;">What if you were the first in your market with this advantage?</p>
         </div>
-        <div class="highlight-box" style="background: rgba(255,255,255,0.95); margin: 50px auto; max-width: 800px;">
-          <p style="margin: 0; color: var(--dark-text); font-size: 1.2em;">Ready to explore?</p>
-          <p style="font-size: 1.8em; margin: 20px 0 0 0;"><strong style="color: var(--accent-orange);">Schedule your discovery workshop today.</strong></p>
+        <div class="highlight-box" style="background: rgba(255,255,255,0.95); margin: 40px auto; max-width: 700px; padding: 30px;">
+          <p style="margin: 0; color: var(--dark-text); font-size: 1.1em;">Ready to explore?</p>
+          <p style="font-size: 1.5em; margin: 15px 0 0 0;"><strong style="color: var(--accent-orange);">Schedule your discovery workshop today.</strong></p>
         </div>
-        <p style="margin-top: 40px;"><a href="https://autspark-website-production.up.railway.app/" style="color: white; font-size: 1.2em; text-decoration: underline;">https://autspark-website-production.up.railway.app/</a></p>
+        <p style="margin-top: 30px;"><a href="https://autspark-website-production.up.railway.app/" style="color: white; font-size: 1em; text-decoration: underline;">autspark-website-production.up.railway.app</a></p>
       </section>
 
     </div>
@@ -453,6 +478,15 @@
       controls: true,
       progress: true,
       center: true,
+      // Responsive sizing configuration
+      width: 1280,
+      height: 720,
+      margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2.0,
+      // Better mobile support
+      touch: true,
+      embedded: false,
       plugins: [ RevealNotes ]
     });
   </script>
