@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
   <title>AutSpark - Nordic Laundry Presentation</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reset.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
@@ -23,23 +23,23 @@
     }
 
     .reveal h1 {
-      font-size: 2.8em;
+      font-size: 2.5em;
       color: var(--dark-text);
       font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 0.5em;
+      line-height: 1.1;
+      margin-bottom: 0.3em;
       letter-spacing: -0.02em;
     }
 
     .reveal h2 {
       color: var(--primary-blue);
       font-weight: 700;
-      font-size: 1.8em;
+      font-size: 1.6em;
     }
 
     .reveal p {
       color: var(--light-text);
-      font-size: 1.1em;
+      font-size: 1em;
       line-height: 1.6;
     }
 
@@ -49,9 +49,10 @@
     }
 
     .reveal li {
-      margin: 15px 0;
-      line-height: 1.6;
+      margin: 10px 0;
+      line-height: 1.5;
       color: var(--light-text);
+      font-size: 1em;
     }
 
     .reveal ul {
@@ -65,34 +66,51 @@
       display: inline-block;
       width: 1.5em;
       margin-left: -1.5em;
-      font-size: 1.2em;
+      font-size: 1.3em;
+      text-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);
+    }
+
+    .card ul li {
+      background: rgba(0, 102, 204, 0.03);
+      padding: 6px 10px;
+      border-radius: 8px;
+      margin: 8px 0;
+      transition: all 0.2s ease;
+    }
+
+    .card ul li:hover {
+      background: rgba(0, 102, 204, 0.08);
+      transform: translateX(5px);
     }
 
     /* Table Styling */
     .reveal table {
-      font-size: 0.9em;
+      font-size: 1em;
       border-collapse: separate;
       border-spacing: 0;
       width: 100%;
       margin: 30px auto;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      border-radius: 16px;
       overflow: hidden;
     }
 
     .reveal table th {
       background: linear-gradient(135deg, var(--primary-blue), #0052a3);
       color: white;
-      padding: 18px;
+      padding: 24px;
       font-weight: 700;
       text-align: left;
-      font-size: 1.1em;
+      font-size: 1.2em;
+      letter-spacing: 0.3px;
     }
 
     .reveal table td {
-      padding: 16px 18px;
+      padding: 22px 24px;
       border-bottom: 1px solid #e2e8f0;
       background: white;
+      font-size: 1.05em;
+      color: var(--dark-text);
     }
 
     .reveal table tr:last-child td {
@@ -106,26 +124,86 @@
     /* Card Styling */
     .card {
       background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      border-left: 4px solid var(--primary-blue);
-      transition: transform 0.3s ease;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      border-left: 5px solid var(--primary-blue);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-blue), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover::before {
+      opacity: 1;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.15);
     }
 
     /* Highlight Box */
     .highlight-box {
       background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-      padding: 25px 30px;
-      border-radius: 12px;
-      border-left: 5px solid var(--primary-blue);
-      margin: 25px 0;
-      box-shadow: 0 2px 8px rgba(0,102,204,0.1);
+      padding: 24px 32px;
+      border-radius: 16px;
+      border-left: 6px solid var(--primary-blue);
+      margin: 30px 0;
+      box-shadow: 0 4px 12px rgba(0,102,204,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .highlight-box::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+      animation: shimmer 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+      50% { transform: translate(0%, 0%) scale(1); opacity: 0.5; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal .slides section.present .card {
+      animation: fadeInUp 0.6s ease-out backwards;
+    }
+
+    .reveal .slides section.present .card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .reveal .slides section.present .highlight-box {
+      animation: fadeInUp 0.6s ease-out 0.4s backwards;
     }
 
     /* Accent Text */
@@ -137,15 +215,58 @@
     /* Number Badges */
     .number-badge {
       display: inline-block;
-      background: var(--primary-blue);
+      background: linear-gradient(135deg, var(--primary-blue), #0052a3);
       color: white;
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       text-align: center;
-      line-height: 40px;
+      line-height: 50px;
       font-weight: bold;
-      margin-right: 10px;
+      margin-right: 15px;
+      font-size: 1.3em;
+      box-shadow: 0 4px 10px rgba(0,102,204,0.3);
+    }
+
+    /* Emoji Icons */
+    .emoji-icon {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      display: block;
+      line-height: 1;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* Card Header */
+    .card-header {
+      margin-bottom: 15px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid transparent;
+      background: linear-gradient(to right, #f1f5f9 0%, transparent 100%) bottom;
+      background-size: 100% 2px;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    .card-header::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-orange), var(--primary-blue));
+      transition: width 0.6s ease;
+    }
+
+    .card:hover .card-header::after {
+      width: 100%;
     }
 
     /* Responsive adjustments */
@@ -167,10 +288,80 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      padding: 15px;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
 
     .reveal .slides {
       text-align: center;
+    }
+
+    /* Hide scrollbar but keep functionality */
+    .reveal section::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .reveal section::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .reveal section::-webkit-scrollbar-thumb {
+      background: rgba(0, 102, 204, 0.3);
+      border-radius: 3px;
+    }
+
+    .reveal section::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 102, 204, 0.5);
+    }
+
+    /* Zoom Controls */
+    .zoom-controls {
+      position: fixed;
+      bottom: 60px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .zoom-btn {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-blue), #0052a3);
+      color: white;
+      border: none;
+      font-size: 1.5em;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .zoom-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0, 102, 204, 0.5);
+    }
+
+    .zoom-btn:active {
+      transform: scale(0.95);
+    }
+
+    @media screen and (max-width: 768px) {
+      .zoom-controls {
+        bottom: 80px;
+        right: 15px;
+      }
+      .zoom-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8em;
+      }
     }
   </style>
 </head>
@@ -193,19 +384,25 @@
 
       <!-- SLIDE 2: Your Current Challenge -->
       <section>
-        <h1>The Problem</h1>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px;">
-          <div class="card">
-            <p><strong style="font-size: 1.2em; color: var(--accent-orange);">📊 Operational data trapped in:</strong></p>
-            <ul style="margin-top: 20px;">
+        <h1 style="margin-bottom: 25px;">The Problem</h1>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 35px; margin-top: 20px; max-width: 1100px; margin-left: auto; margin-right: auto;">
+          <div class="card" style="background: linear-gradient(to bottom, white 0%, #fafbfc 100%);">
+            <div class="card-header">
+              <span class="emoji-icon">📊</span>
+              <p style="margin: 0;"><strong style="font-size: 1.4em; color: var(--accent-orange); line-height: 1.3;">Operational data trapped in:</strong></p>
+            </div>
+            <ul style="margin-top: 0;">
               <li>Spreadsheets</li>
               <li>Manual logs</li>
               <li>Tribal knowledge</li>
             </ul>
           </div>
-          <div class="card">
-            <p><strong style="font-size: 1.2em; color: var(--accent-orange);">⚠️ What you're managing:</strong></p>
-            <ul style="margin-top: 20px;">
+          <div class="card" style="background: linear-gradient(to bottom, white 0%, #fafbfc 100%);">
+            <div class="card-header">
+              <span class="emoji-icon">⚠️</span>
+              <p style="margin: 0;"><strong style="font-size: 1.4em; color: var(--accent-orange); line-height: 1.3;">What you're managing:</strong></p>
+            </div>
+            <ul style="margin-top: 0;">
               <li>High labor costs</li>
               <li>Energy regulations</li>
               <li>Sustainability requirements</li>
@@ -214,16 +411,16 @@
             </ul>
           </div>
         </div>
-        <div class="highlight-box" style="margin-top: 30px;">
-          <p style="font-size: 1.3em; margin: 0;"><strong style="color: var(--accent-orange);">Result:</strong> No visibility into costs or efficiency</p>
+        <div class="highlight-box" style="margin-top: 30px; background: linear-gradient(135deg, #fff5f5 0%, #ffe4e4 100%); border-left-color: var(--accent-orange); max-width: 1100px; margin-left: auto; margin-right: auto;">
+          <p style="font-size: 1.3em; margin: 0;"><strong style="color: var(--accent-orange);">Result:</strong> <span style="color: var(--dark-text);">No visibility into costs or efficiency</span></p>
         </div>
       </section>
 
       <!-- SLIDE 3: Hidden Costs -->
       <section>
         <h1>Where Efficiency Is Lost</h1>
-        <div style="max-width: 900px; margin: 0 auto;">
-          <ul style="font-size: 1.1em; text-align: left;">
+        <div style="max-width: 900px; margin: 40px auto;">
+          <ul style="font-size: 1.2em; text-align: left;">
             <li>🔥 Managers firefighting instead of optimizing</li>
             <li>⚙️ Machines running inefficiently</li>
             <li>⚡ Energy waste from poor scheduling</li>
@@ -231,7 +428,7 @@
             <li>⏰ Unnecessary overtime</li>
           </ul>
         </div>
-        <div class="highlight-box" style="margin-top: 50px; font-size: 1.3em;">
+        <div class="highlight-box" style="margin-top: 60px; font-size: 1.4em;">
           <p style="margin: 0;"><strong style="color: var(--success-green);">✓ Most of this is preventable with visibility.</strong></p>
         </div>
       </section>
@@ -261,18 +458,18 @@
             <td>Transparent</td>
           </tr>
         </table>
-        <div class="highlight-box">
-          <p style="margin-bottom: 15px;"><strong style="color: var(--primary-blue);">Early adopters in Nordic region will own competitive advantage.</strong></p>
-          <p style="margin: 0;">Potential improvements: <span class="accent">12-20% productivity</span>, <span class="accent">15-25% energy savings</span>, <span class="accent">30% fewer quality issues</span></p>
+        <div class="highlight-box" style="margin-top: 40px;">
+          <p style="margin-bottom: 20px; font-size: 1.15em;"><strong style="color: var(--primary-blue);">Early adopters in Nordic region will own competitive advantage.</strong></p>
+          <p style="margin: 0; font-size: 1.1em;">Potential improvements: <span class="accent">12-20% productivity</span>, <span class="accent">15-25% energy savings</span>, <span class="accent">30% fewer quality issues</span></p>
         </div>
       </section>
 
       <!-- SLIDE 5: Introducing AutSpark -->
       <section>
         <h1>Operational Intelligence Built for Laundry</h1>
-        <div style="display: flex; gap: 30px; margin-top: 40px;">
+        <div style="display: flex; gap: 40px; margin-top: 50px;">
           <div class="card" style="flex: 1;">
-            <p><strong style="font-size: 1.3em; color: var(--success-green);">✓ What We Provide:</strong></p>
+            <p><strong style="font-size: 1.4em; color: var(--success-green);">✓ What We Provide:</strong></p>
             <ul style="margin-top: 20px;">
               <li>Real-time energy & labor monitoring</li>
               <li>Sustainability compliance support</li>
@@ -282,7 +479,7 @@
             </ul>
           </div>
           <div class="card" style="flex: 1; border-left-color: var(--accent-orange);">
-            <p><strong style="font-size: 1.3em; color: var(--accent-orange);">✗ What We Don't:</strong></p>
+            <p><strong style="font-size: 1.4em; color: var(--accent-orange);">✗ What We Don't:</strong></p>
             <ul style="margin-top: 20px;">
               <li>Require long-term contracts</li>
               <li>Replace your expertise</li>
@@ -322,41 +519,43 @@
             <td>Implement, monitor results</td>
           </tr>
         </table>
-        <p><strong>6 weeks to measurable results. Zero operational disruption.</strong></p>
+        <div class="highlight-box" style="margin-top: 40px;">
+          <p style="margin: 0; font-size: 1.3em;"><strong style="color: var(--primary-blue);">6 weeks to measurable results.</strong> <strong style="color: var(--success-green);">Zero operational disruption.</strong></p>
+        </div>
       </section>
 
       <!-- SLIDE 7: The Four Key Benefits -->
       <section>
         <h1>What You'll Actually See</h1>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 40px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 35px; margin-top: 40px;">
           <div class="card">
-            <p style="font-size: 2.5em; margin: 0;">⚡</p>
-            <p><strong style="font-size: 1.3em; color: var(--primary-blue);">Energy Efficiency</strong></p>
-            <ul style="margin-top: 15px; font-size: 0.95em;">
+            <p style="font-size: 2.8em; margin: 0;">⚡</p>
+            <p><strong style="font-size: 1.4em; color: var(--primary-blue);">Energy Efficiency</strong></p>
+            <ul style="margin-top: 15px; font-size: 1em;">
               <li><span class="accent">15-25%</span> energy cost reduction</li>
               <li>Compliance documentation</li>
             </ul>
           </div>
           <div class="card">
-            <p style="font-size: 2.5em; margin: 0;">📈</p>
-            <p><strong style="font-size: 1.3em; color: var(--primary-blue);">Productivity</strong></p>
-            <ul style="margin-top: 15px; font-size: 0.95em;">
+            <p style="font-size: 2.8em; margin: 0;">📈</p>
+            <p><strong style="font-size: 1.4em; color: var(--primary-blue);">Productivity</strong></p>
+            <ul style="margin-top: 15px; font-size: 1em;">
               <li><span class="accent">12-20%</span> output improvement</li>
               <li>Same headcount</li>
             </ul>
           </div>
           <div class="card">
-            <p style="font-size: 2.5em; margin: 0;">✨</p>
-            <p><strong style="font-size: 1.3em; color: var(--primary-blue);">Quality</strong></p>
-            <ul style="margin-top: 15px; font-size: 0.95em;">
+            <p style="font-size: 2.8em; margin: 0;">✨</p>
+            <p><strong style="font-size: 1.4em; color: var(--primary-blue);">Quality</strong></p>
+            <ul style="margin-top: 15px; font-size: 1em;">
               <li><span class="accent">30%</span> fewer quality issues</li>
               <li>Consistent delivery</li>
             </ul>
           </div>
           <div class="card">
-            <p style="font-size: 2.5em; margin: 0;">👁️</p>
-            <p><strong style="font-size: 1.3em; color: var(--primary-blue);">Clarity</strong></p>
-            <ul style="margin-top: 15px; font-size: 0.95em;">
+            <p style="font-size: 2.8em; margin: 0;">👁️</p>
+            <p><strong style="font-size: 1.4em; color: var(--primary-blue);">Clarity</strong></p>
+            <ul style="margin-top: 15px; font-size: 1em;">
               <li>Full cost visibility</li>
               <li>Better decisions</li>
             </ul>
@@ -367,7 +566,7 @@
       <!-- SLIDE 8: Why Partner with AutSpark -->
       <section>
         <h1>Early Adopter Advantage</h1>
-        <div style="font-size: 0.85em;">
+        <div style="font-size: 1.05em;">
           <p><strong>You'll help us build this:</strong></p>
           <ul>
             <li>Direct influence on product roadmap</li>
@@ -394,7 +593,7 @@
       <!-- SLIDE 9: The 3-Month Pilot -->
       <section>
         <h1>Proof of Concept</h1>
-        <div style="font-size: 0.9em;">
+        <div style="font-size: 1.05em;">
           <p><strong>Month 1: Measure current state</strong></p>
           <ul>
             <li>Current costs analyzed</li>
@@ -411,7 +610,9 @@
             <li>ROI calculated</li>
             <li>Decision on full rollout</li>
           </ul>
-          <p><strong>No long-term commitment. Results-based partnership.</strong></p>
+          <div class="highlight-box" style="margin-top: 30px;">
+            <p style="margin: 0; font-size: 1.2em;"><strong>No long-term commitment. Results-based partnership.</strong></p>
+          </div>
         </div>
       </section>
 
@@ -441,15 +642,17 @@
       <!-- SLIDE 11: You Can't Manage What You Can't See -->
       <section>
         <h1>The Core Truth</h1>
-        <p>Success in Nordic laundry requires:</p>
-        <ul>
+        <p style="font-size: 1.2em; margin: 30px 0;">Success in Nordic laundry requires:</p>
+        <ul style="font-size: 1.1em;">
           <li>Clear visibility into all costs</li>
           <li>Data-driven decisions</li>
           <li>Sustainable operations</li>
           <li>Happy, productive staff</li>
         </ul>
-        <p><strong>AutSpark provides the visibility to achieve all of this.</strong></p>
-        <p style="margin-top: 40px;">The question is: Who will be first in your market?</p>
+        <div class="highlight-box" style="margin-top: 50px;">
+          <p style="margin: 0; font-size: 1.3em;"><strong style="color: var(--primary-blue);">AutSpark provides the visibility to achieve all of this.</strong></p>
+        </div>
+        <p style="margin-top: 50px; font-size: 1.25em; color: var(--accent-orange); font-weight: 600;">The question is: Who will be first in your market?</p>
       </section>
 
       <!-- SLIDE 12: Let's Build This Together -->
@@ -469,6 +672,13 @@
     </div>
   </div>
 
+  <!-- Zoom Controls -->
+  <div class="zoom-controls">
+    <button class="zoom-btn" id="zoom-in" title="Zoom In" aria-label="Zoom In">+</button>
+    <button class="zoom-btn" id="zoom-out" title="Zoom Out" aria-label="Zoom Out">−</button>
+    <button class="zoom-btn" id="zoom-reset" title="Reset Zoom" aria-label="Reset Zoom">⟲</button>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
   <script>
@@ -477,17 +687,58 @@
       transition: 'slide',
       controls: true,
       progress: true,
-      center: true,
+      center: false,
       // Responsive sizing configuration
       width: 1280,
       height: 720,
-      margin: 0.04,
+      margin: 0.1,
       minScale: 0.2,
       maxScale: 2.0,
       // Better mobile support
       touch: true,
       embedded: false,
       plugins: [ RevealNotes ]
+    });
+
+    // Zoom functionality
+    let currentZoom = 1;
+    const zoomStep = 0.2;
+    const minZoom = 0.5;
+    const maxZoom = 3.0;
+    const revealElement = document.querySelector('.reveal');
+
+    function updateZoom(newZoom) {
+      currentZoom = Math.max(minZoom, Math.min(maxZoom, newZoom));
+      revealElement.style.transform = `scale(${currentZoom})`;
+      revealElement.style.transformOrigin = 'center center';
+    }
+
+    document.getElementById('zoom-in').addEventListener('click', () => {
+      updateZoom(currentZoom + zoomStep);
+    });
+
+    document.getElementById('zoom-out').addEventListener('click', () => {
+      updateZoom(currentZoom - zoomStep);
+    });
+
+    document.getElementById('zoom-reset').addEventListener('click', () => {
+      updateZoom(1);
+    });
+
+    // Keyboard shortcuts for zoom
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey || e.metaKey) {
+        if (e.key === '=' || e.key === '+') {
+          e.preventDefault();
+          updateZoom(currentZoom + zoomStep);
+        } else if (e.key === '-' || e.key === '_') {
+          e.preventDefault();
+          updateZoom(currentZoom - zoomStep);
+        } else if (e.key === '0') {
+          e.preventDefault();
+          updateZoom(1);
+        }
+      }
     });
   </script>
 </body>
